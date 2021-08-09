@@ -2,54 +2,36 @@ var currentDate = moment().format("MMM Do, YYYY");
 $("#currentDay").text(currentDate);
 console.log(currentDate)
 
-var currentMoment = moment().format("H");
+var currentMoment = parseInt(moment().format("H"));
+console.log(typeof(currentMoment));
+
+var timeBlocks = document.getElementsByClassName("row")
 
 
-var fourPm = document.getElementById("four-pm");
-var threePm = document.getElementById("three-pm");
-
-var allTimeblocks = ["fivePm", "fourPm", "threePm"]
-
-if (fivePm < currentMoment) {
-    .setAttribute("class", "past");
-}
-
-
-
-function pastPresentFuture() {
-
-    for(i=0;i < allTimeblocks.length; i++) {
-        if (allTimeblocks[0] < currentMoment) {
-            allTimeblocks.setAttribute("class", "past");
-        }
-        // else if (allTimeblocks = currentMoment) {
-        //      allTimeblocks.setAttribute("class", "present");
-        // }
-        // else {
-        //      allTimeblocks.setAttribute("class", "future");
-        // }
+function compareTime() {
+    currentMoment = 12
+    for (i = 0; i < timeBlocks.length; i++) {
+        var timeChange = timeBlocks[i] 
+        var timeId = parseInt(timeChange.getAttribute("id"))
+       console.log(timeId);
+       console.log(currentMoment);
+      if (timeId < currentMoment) {
+          timeChange.classList.add("past");
+      }  
+      else if (timeId === currentMoment) {
+          timeChange.classList.add("present");
+      }
+      else {
+          timeChange.classList.add("future");
+      }
+        
     }
-    pastPresentFuture()
+
 }
+compareTime()
 
 
 
 
-// function calendarTimes() {
 
-if(currentMoment > fourPm) {
-   var element = document.getElementById("fourPm");
-   fourPm.classList.toggle("past");
-}
-else if (currentMoment === fourPm) {
-    
-   fourPm.classList.toggle("present");
-}
-else {
-    
-   fourPm.classList.toggle("future");
-}
 
-// }
-// calendarTimes()
-//create blocks of time that change color based on the current time and can be written into and saved in local storage
