@@ -7,7 +7,7 @@ console.log(typeof(currentMoment));
 
 var timeBlocks = document.getElementsByClassName("row")
 
-
+//function created to compare the individual time blocks with the current time of day
 function compareTime() {
     
     for (i = 0; i < timeBlocks.length; i++) {
@@ -30,10 +30,12 @@ function compareTime() {
 }
 compareTime()
 
+//save button created 
 var saveButton = document.getElementById("button-addon2");
 
 var inputText = document.getElementsByClassName("form-control");
 
+//event listener added to save button to track a save click
 saveButton.addEventListener("click", function(event) {
     event.preventDefault();
 
