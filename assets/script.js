@@ -9,7 +9,7 @@ var timeBlocks = document.getElementsByClassName("row")
 
 
 function compareTime() {
-    currentMoment = 12
+    
     for (i = 0; i < timeBlocks.length; i++) {
         var timeChange = timeBlocks[i] 
         var timeId = parseInt(timeChange.getAttribute("id"))
@@ -30,6 +30,20 @@ function compareTime() {
 }
 compareTime()
 
+var saveButton = document.getElementById("button-addon2");
+
+var inputText = document.getElementsByClassName("form-control");
+
+saveButton.addEventListener("click", function(event) {
+    event.preventDefault();
+
+    var textDisplaying = {
+        textWritten: inputText.value.trim(),
+    }
+
+    localStorage.setItem("inputText", "value");
+
+})
 
 
 
